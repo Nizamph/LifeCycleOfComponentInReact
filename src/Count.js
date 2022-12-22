@@ -12,7 +12,14 @@ const Count = () => {
   }, []);
 
   useEffect(() => {
-    console.log("component got updated successfully");
+ const id = setTimeout(() => {
+      console.log("component got updated successfully");
+    },5000)
+    
+    return () => {
+      clearTimeout(id)
+      console.log("cleaned upp")
+    }
   });
   const countHandler = () => {
     SetCount(count + 1);
